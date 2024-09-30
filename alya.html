@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="alya.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" />
+    <title>Alya ?</title>
+</head>
+<body>
+<div class="alya">
+  <nav class="navbar">
+    <div class="navbar-items">
+      <img class="alya-e-portfolio-removebg-prev-icon" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
+      <div class="accueill"><a href="acceuil.html" class="link">Accueil</a></div>
+      <div class="projets"><a href="projets.html" class="link">Projets</a></div>
+      <div class="contact"><a href="contact.html" class="link">Contact</a></div>
+      <div class="alya" id="alyaText"><a href="alya.html" class="link">Alya ?</a></div>
+      <img class="search-icon" src="images/search.png">
+    </div>
+  </nav>
+  <b class="alya-en-4">ALya en 4 cartes ?</b>
+  <div class="card" onclick="tournercarte(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <img class="a-1-icon" alt="" src="A.jpg">
+      </div>
+      <div class="card-back" style="visibility: hidden">
+        <img class="a-1-icon-back" alt="" src="ABACK (1).png"> <!-- Image pour le verso de A -->
+      </div>
+    </div>
+  </div>
+  <div class="card"  onclick="tournercarte(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <img class="l-1-icon" alt="" src="L.jpg">
+      </div>
+      <div class="card-back" style="visibility: hidden">
+        <img class="l-1-icon-back" alt="" src="LBACK (1).png"> <!-- Image pour le verso de L -->
+      </div>
+    </div>
+  </div>
+  <div class="card"  onclick="tournercarte(this)">
+    <div class="card-inner">
+      <div class="card-front">
+        <img class="y-1-icon" alt="" src="Y.jpg">
+      </div>
+      <div class="card-back" style="visibility: hidden">
+        <img class="y-1-icon-back" alt="" src="YBACK (1).png"> <!-- Image pour le verso de Y -->
+      </div>
+    </div>
+  </div>
+  <div class="card" onclick="tournercarte(this)">
+      <div class="card-inner">
+        <div class="card-front">
+          <img class="a-1-icon1" alt="" src="A.jpg"> <!-- Deuxième image de A -->
+        </div>
+        <div class="card-back" style="visibility: hidden">
+          <img class="a-1-icon1-back" alt="" src="A2back (1).png"> <!-- Image pour le verso de A2 -->
+        </div>
+      </div>
+    </div>
+  <div class="do-u-matching">DO U MATCHING AURA W/ ME ?</div>
+  <div class="alya-child"></div>
+  <b class="quizz">QUIZZ</b>
+</div>
+<script>
+  function tournercarte(card) {
+    const front = card.querySelector('.card-front');
+    const back = card.querySelector('.card-back');
+
+    if ( back.style.visibility === "hidden") {
+
+      front.style.visibility = "hidden";
+
+      back.style.visibility = "visible"
+      back.style.zIndex="10"
+
+    }
+  else {
+      front.style.visibility = "visible";
+      back.style.visibility = "hidden";
+    }
+
+  }
+
+</script>
+</body>
+</html>
