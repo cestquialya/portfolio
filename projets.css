@@ -1,0 +1,280 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kode Mono', monospace;
+    line-height: 1.5;
+    background-color: #fff;
+    color: #000;
+}
+
+
+/* Specific styles for the Projects page content */
+.titre{
+    font-size: 48px;
+    font-weight: bold;
+   text-align: center;
+}
+.main-content {
+    flex-grow: 1; /* Allow main content to take up available space */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: flex-start; /* Align items to the top */
+    padding: 20px; /* Add some padding */
+    box-sizing: border-box;
+    width: 100%; /* Take full width */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 25px; /* Space between project cards */
+    max-width: 1200px; /* Max width for the grid */
+    width: 100%;
+    margin: 0 auto; /* Center the grid */
+    padding-top: 20px; /* Add some space above the grid */
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden; /* Keep content within rounded borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Stack image and info vertically */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Lift card slightly on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+}
+
+.project-image {
+    width: 100%;
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+.project-info {
+    padding: 15px;
+    flex-grow: 1; /* Allow info section to fill space */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.4em;
+    color: #333;
+}
+
+.project-info p {
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Allow description to take space */
+}
+
+.project-link {
+    display: inline-block;
+    background-color: #fd8be9;
+    color: white;
+    padding: 10px 15px;
+    border: none; /* Use button, remove default border */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    align-self: flex-start; /* Align link to the left */
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Indicate it's clickable */
+    font-family: "Kode Mono", monospace; /* Match site font */
+    font-size: 1em; /* Match paragraph font size */
+}
+
+.project-link:hover {
+    background-color: #fc98a8;
+}
+
+/* Highlight active link in navbar */
+.navbar a.active-link {
+    color: #007bff; /* Or any color that indicates active */
+    font-weight: 700; /* Make it bold */
+    /* Optional: add an underline or border */
+    border-bottom: 2px solid #007bff;
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 100; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+    padding-top: 60px; /* Location of the box */
+    backdrop-filter: blur(5px); /* Optional: blur background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 700px; /* Could be responsive */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative; /* For close button positioning */
+    text-align: left; /* Align text left inside modal */
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal-content #modalImage {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#modalLinks a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#modalLinks a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* The Close Button */
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive adjustments for projects grid */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller min width */
+        gap: 20px;
+    }
+
+    .project-image {
+        height: 180px; /* Slightly smaller height */
+    }
+
+    .project-info h3 {
+        font-size: 1.2em;
+    }
+
+    .project-info p {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+    }
+
+    .project-image {
+        height: 150px; /* Even smaller height */
+    }
+
+    .project-info h3 {
+        font-size: 1.1em;
+    }
+
+    .project-info p {
+        font-size: 0.85em;
+    }
+}
+
+/* Responsive adjustments for modal */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        padding: 20px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5em;
+    }
+
+    .modal-content p {
+        font-size: 1em;
+    }
+
+    #modalLinks a {
+        margin-right: 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-content {
+        margin: 15% 10px; /* Add horizontal margin */
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+    .modal-content p {
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    #modalLinks a {
+        display: block; /* Stack links */
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+

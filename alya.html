@@ -1,88 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-  <link rel="stylesheet" href="alya.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" />
-    <title>Alya ?</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="alya.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap">
+  <title>Alya ?</title>
 </head>
 <body>
 <div class="alya">
   <nav class="navbar">
     <div class="navbar-items">
-      <img class="alya-e-portfolio-removebg-prev-icon" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
-      <div class="accueill"><a href="acceuil.html" class="link">Accueil</a></div>
-      <div class="projets"><a href="projets.html" class="link">Projets</a></div>
-      <div class="contact"><a href="contact.html" class="link">Contact</a></div>
-      <div class="alya" id="alyaText"><a href="alya.html" class="link">Alya ?</a></div>
-      <img class="search-icon" src="images/search.png">
+      <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
+      <div class="nav-item accueil"><a href="acceuil.html" class="link">Accueil</a></div>
+      <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+      <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+      <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+
     </div>
   </nav>
-  <b class="alya-en-4">ALya en 4 cartes ?</b>
-  <div class="card" onclick="tournercarte(this)">
-    <div class="card-inner">
-      <div class="card-front">
-        <img class="a-1-icon" alt="" src="A.jpg">
-      </div>
-      <div class="card-back" style="visibility: hidden">
-        <img class="a-1-icon-back" alt="" src="ABACK (1).png"> <!-- Image pour le verso de A -->
-      </div>
-    </div>
-  </div>
-  <div class="card"  onclick="tournercarte(this)">
-    <div class="card-inner">
-      <div class="card-front">
-        <img class="l-1-icon" alt="" src="L.jpg">
-      </div>
-      <div class="card-back" style="visibility: hidden">
-        <img class="l-1-icon-back" alt="" src="LBACK (1).png"> <!-- Image pour le verso de L -->
-      </div>
-    </div>
-  </div>
-  <div class="card"  onclick="tournercarte(this)">
-    <div class="card-inner">
-      <div class="card-front">
-        <img class="y-1-icon" alt="" src="Y.jpg">
-      </div>
-      <div class="card-back" style="visibility: hidden">
-        <img class="y-1-icon-back" alt="" src="YBACK (1).png"> <!-- Image pour le verso de Y -->
-      </div>
-    </div>
-  </div>
-  <div class="card" onclick="tournercarte(this)">
-      <div class="card-inner">
-        <div class="card-front">
-          <img class="a-1-icon1" alt="" src="A.jpg"> <!-- Deuxième image de A -->
+  <div class="main-content">
+    <div class="alya-section" id="cardsSection">
+      <b class="alya-en-4">ALya en 4 cartes ?</b>
+      <div class="cards-grid">
+        <div class="card" onclick="tournercarte(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="card-img" alt="A" src="A.jpg">
+            </div>
+            <div class="card-back">
+              <img class="card-img" alt="A Back" src="images/AB.png">
+            </div>
+          </div>
         </div>
-        <div class="card-back" style="visibility: hidden">
-          <img class="a-1-icon1-back" alt="" src="A2back (1).png"> <!-- Image pour le verso de A2 -->
+        <div class="card" onclick="tournercarte(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="card-img" alt="L" src="L.jpg">
+            </div>
+            <div class="card-back">
+              <img class="card-img" alt="L Back" src="images/LB.png">
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="tournercarte(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="card-img" alt="Y" src="Y.jpg">
+            </div>
+            <div class="card-back">
+              <img class="card-img" alt="Y Back" src="images/YB.png">
+            </div>
+          </div>
+        </div>
+        <div class="card" onclick="tournercarte(this)">
+          <div class="card-inner">
+            <div class="card-front">
+              <img class="card-img" alt="A2" src="A.jpg">
+            </div>
+            <div class="card-back">
+              <img class="card-img" alt="A2 Back" src="images/ABB.png">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="do-u-matching">DO U MATCHING AURA W/ ME ?</div>
+      <button id="startQuizButton" class="start-quiz-button">Quiz !</button>
+    </div>
+    <div class="alya-section quiz-section" id="quizSection">
+      <h2>Quiz : Sommes-nous compatibles ?</h2>
+      <div class="quiz-container">
+        <div id="questionArea">
+          <p id="questionText"></p>
+          <div id="answerOptions" class="answer-options"></div>
+        </div>
+        <div id="resultArea" class="result-area hidden">
+          <h3>Votre compatibilité avec Alya :</h3>
+          <div class="progress-bar-container">
+            <div class="progress-bar-fill" id="progressBarFill"></div>
+          </div>
+          <p id="compatibilityText"></p>
+          <button id="restartQuizButton" class="start-quiz-button">Recommencer le quiz</button>
         </div>
       </div>
     </div>
-  <div class="do-u-matching">DO U MATCHING AURA W/ ME ?</div>
-  <div class="alya-child"></div>
-  <b class="quizz">QUIZZ</b>
+  </div>
 </div>
+
 <script>
   function tournercarte(card) {
-    const front = card.querySelector('.card-front');
-    const back = card.querySelector('.card-back');
-
-    if ( back.style.visibility === "hidden") {
-
-      front.style.visibility = "hidden";
-
-      back.style.visibility = "visible"
-      back.style.zIndex="10"
-
-    }
-  else {
-      front.style.visibility = "visible";
-      back.style.visibility = "hidden";
-    }
-
+    const inner = card.querySelector('.card-inner');
+    inner.classList.toggle('flipped');
   }
 
+  const startQuizButton = document.getElementById('startQuizButton');
+  const cardsSection = document.getElementById('cardsSection');
+  const quizSection = document.getElementById('quizSection');
+  const questionTextElement = document.getElementById('questionText');
+  const answerOptionsElement = document.getElementById('answerOptions');
+  const questionArea = document.getElementById('questionArea');
+  const resultArea = document.getElementById('resultArea');
+  const progressBarFill = document.getElementById('progressBarFill');
+  const compatibilityTextElement = document.getElementById('compatibilityText');
+  const restartQuizButton = document.getElementById('restartQuizButton');
+
+  const quizQuestions = [
+    {
+      question: "Quel type d'environnement créatif préfères-tu ?",
+      options: [
+        { text: "Un espace calme et organisé", points: 1 },
+        { text: "Un lieu stimulant et un peu chaotique", points: 0 },
+        { text: "Un environnement numérique pur", points: 1 }
+      ]
+    },
+    {
+      question: "Comment réagis-tu face à un problème complexe ?",
+      options: [
+        { text: "J'analyse méthodiquement chaque détail", points: 2 },
+        { text: "Je recherche des solutions créatives 'hors des sentiers battus'", points: 2 },
+        { text: "Je demande de l'aide immédiatement", points: 0 },
+        { text: "J'essaie de trouver une solution rapide même imparfaite", points: 1 }
+      ]
+    },
+    {
+      question: "Imagine que tu commences un nouveau projet. Quelle est ta première étape ?",
+      options: [
+        { text: "Planification détaillée et structuration", points: 1 },
+        { text: "Brainstorming libre et exploration d'idées", points: 1 },
+        { text: "Se lancer directement dans l'action", points: 0 }
+      ]
+    },
+    {
+      question: "Quelle est ta relation avec les nouvelles technologies, y compris l'IA ?",
+      options: [
+        { text: "Curieux(se) et impatient(e) d'explorer", points: 2 },
+        { text: "Prudent(e) mais ouvert(e) à l'apprentissage", points: 1 },
+        { text: "Indifférent(e) ou sceptique", points: 0 }
+      ]
+    }
+  ];
+
+  let currentQuestionIndex = 0;
+  let userScore = 0;
+  const trueMaxScore = 6;
+
+  function startQuiz() {
+    cardsSection.classList.add('hidden');
+    startQuizButton.classList.add('hidden');
+    quizSection.classList.remove('hidden');
+    currentQuestionIndex = 0;
+    userScore = 0;
+    resultArea.classList.add('hidden');
+    questionArea.classList.remove('hidden');
+    displayQuestion();
+  }
+
+  function displayQuestion() {
+    if (currentQuestionIndex < quizQuestions.length) {
+      const questionData = quizQuestions[currentQuestionIndex];
+      questionTextElement.textContent = questionData.question;
+      answerOptionsElement.innerHTML = '';
+      questionData.options.forEach(option => {
+        const button = document.createElement('button');
+        button.classList.add('answer-option-button');
+        button.textContent = option.text;
+        button.addEventListener('click', () => selectAnswer(option.points));
+        answerOptionsElement.appendChild(button);
+      });
+    } else {
+      showResult();
+    }
+  }
+
+  function selectAnswer(points) {
+    userScore += points;
+    currentQuestionIndex++;
+    displayQuestion();
+  }
+
+  function showResult() {
+    questionArea.classList.add('hidden');
+    resultArea.classList.remove('hidden');
+    const percentage = Math.round((userScore / trueMaxScore) * 100);
+    const clampedPercentage = Math.max(0, Math.min(100, percentage));
+    progressBarFill.style.width = clampedPercentage + '%';
+    progressBarFill.textContent = clampedPercentage + '%';
+
+    let compatibilityText = '';
+    let color = '#28a745';
+    if (clampedPercentage < 30) {
+      compatibilityText = "Notre compatibilité est faible. Explorons d'autres façons de collaborer !";
+      color = '#dc3545';
+    } else if (clampedPercentage < 60) {
+      compatibilityText = "Nous avons une compatibilité modérée. Il y a une bonne base pour travailler ensemble.";
+      color = '#ffc107';
+    } else if (clampedPercentage < 90) {
+      compatibilityText = "Notre compatibilité est bonne ! Nous devrions bien nous entendre pour créer.";
+      color = '#007bff';
+    } else {
+      compatibilityText = "Excellente compatibilité ! Prêt(e) à créer ensemble ?";
+    }
+    progressBarFill.style.backgroundColor = color;
+    compatibilityTextElement.textContent = compatibilityText;
+  }
+
+  function restartQuiz() {
+    currentQuestionIndex = 0;
+    userScore = 0;
+    resultArea.classList.add('hidden');
+    questionArea.classList.remove('hidden');
+    displayQuestion();
+  }
+
+  startQuizButton.addEventListener('click', startQuiz);
+  restartQuizButton.addEventListener('click', restartQuiz);
+  quizSection.classList.add('hidden');
 </script>
 </body>
 </html>

@@ -3,8 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <title>Projets</title>
+    <link rel="stylesheet" href="projets.css" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" />
 </head>
 <body>
+<nav class="navbar">
+    <div class="navbar-items">
+        <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
+        <div class="nav-item accueil"><a href="acceuil.html" class="link">Accueil</a></div>
+        <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+        <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+        <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+    </div>
+</nav>
+<!-- Main Content Area for Projects -->
+<h1 class="titre">Mes projets les plus précieux</h1>
+<div class="main-content">
+    <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card" data-project-id="1">
+            <img src="projet1.png" alt="France Greffe Poumon Screenshot" class="project-image">
+            <div class="project-info">
+                <h3>France Greffe Poumon</h3>
+                <p>Site web pour sensibiliser à la greffe de poumon, avec un design intuitif.</p>
+                <button class="project-link" data-project-id="1">Voir le projet</button>
+            </div>
+        </div>
+        <!-- Project 2 -->
+        <div class="project-card" data-project-id="2">
+            <img src="projet2.png" alt="France Assos Santé Screenshot" class="project-image">
+            <div class="project-info">
+                <h3>France Assos Santé</h3>
+                <p>Application mobile pour faciliter les dons à une association de santé.</p>
+                <button class="project-link" data-project-id="2">Voir le projet</button>
+            </div>
+        </div>
+        <!-- Project 3 -->
+        <div class="project-card" data-project-id="3">
+            <img src="projet3.png" alt="ToDoList App Screenshot" class="project-image">
+            <div class="project-info">
+                <h3>ToDoList App</h3>
+                <p>Une application simple et mignonne pour gérer ses tâches quotidiennes.</p>
+                <button class="project-link" data-project-id="3">Voir le projet</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<!-- Project Modal Structure -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close-button">×</span>
+        <h2 id="modalTitle"></h2>
+        <img id="modalImage" src="" alt="Project Screenshot">
+        <p id="modalDescription"></p>
+        <div id="modalLinks">
+            <!-- Links like Live Demo, GitHub Repo will go here -->
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Projets page loaded. Ready for interactive features.');
+
+        // Get modal elements
+        const modal = document.getElementById('projectModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImage = document.getElementById('modalImage');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalLinks = document.getElementById('modalLinks');
+        const closeButton = document.querySelector('.close-button');
+
+        // Get all elements that trigger the modal (the buttons)
+        const projectLinks = document.querySelectorAll('.project-link');
+
+        // Define project data
+        const projectsData = {
+            1: {
+                title: 'France Greffe Poumon',
+                image: 'projet1.png',
+                description: 'Un site web conçu pour sensibiliser à la greffe de poumon, avec un design intuitif et informatif. Par respect pour le site initial, le dépôt GitHub n\'est pas public. Découvrez une présentation du site en plein écran via un carrousel.',
+                links: [
+                    { text: 'Voir le Carrousel', url: 'greffepoumon.html' } // Relative link to your carousel page
+                ]
+            },
+            2: {
+                title: 'France Assos Santé',
+                image: 'projet2.png',
+                description: 'Une application mobile Android développée pour faciliter les dons à une association de santé. Construite avec Java et XML dans Android Studio, utilisant MySQL comme base de données et JSP pour la gestion côté serveur. Visionnez une démonstration vidéo pour voir l\'application en action.',
+                links: [
+                    { text: 'Démo Live (Vidéo)', url: 'applidon.mp4' } // Replace with your actual video file path or URL
+                ]
+            },
+            3: {
+                title: 'ToDoList App',
+                image: 'projet3.png',
+                description: 'Un projet simple mais très utile, cette application de liste de tâches m\'a permis de découvrir comment déployer un projet pour un usage réel. Développée en HTML, CSS et JavaScript, elle est mignonne, fonctionnelle et accessible à tous.',
+                links: [
+                    { text: 'Le lien du site ', url: 'http://todokitty.wuaze.com/' } // Replace with your actual live demo URL
+
+                ]
+            }
+        };
+
+        // Function to show the modal
+        function showModal(projectId) {
+            const project = projectsData[projectId];
+
+            if (project) {
+                modalTitle.textContent = project.title;
+                modalImage.src = project.image;
+                modalDescription.textContent = project.description;
+
+                // Clear previous links
+                modalLinks.innerHTML = '';
+                // Add new links
+                project.links.forEach(link => {
+                    const anchor = document.createElement('a');
+                    anchor.href = link.url;
+                    anchor.textContent = link.text;
+                    anchor.target = '_blank'; // Open in new tab (except for internal carousel page)
+                    if (link.url === 'greffe-poumon-carousel.html') {
+                        anchor.target = '_self'; // Open internal page in same tab
+                    }
+                    anchor.classList.add('modal-link'); // Optional: Add class for styling
+                    modalLinks.appendChild(anchor);
+                });
+
+                modal.style.display = 'block';
+            }
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            modal.style.display = 'none';
+        }
+
+        // Add click listeners to each project link button
+        projectLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                const projectId = link.getAttribute('data-project-id');
+                showModal(projectId);
+            });
+        });
+
+        // Add click listener to the close button
+        closeButton.addEventListener('click', hideModal);
+
+        // Add click listener to the modal overlay (to close when clicking outside content)
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+
+        // Optional: Close modal with Escape key
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                hideModal();
+            }
+        });
+    });
+</script>
 </body>
 </html>

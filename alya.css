@@ -1,175 +1,322 @@
-.navbar-items div {
-    position: absolute;
-    top: 50px;
-    cursor: pointer;
-    width: 84px;
-    height: 31px;
-    display: inline-block ;
-    font-weight: 500;
-
-}
-
-.navbar-items div.accueill {
-    left: 501px;
-
-}
-
-.navbar-items div.projets {
-    left: 791px;
-
-
-}
-
-.navbar-items div.contact {
-    left: 931px;
-
-
-}
-
-.navbar-items div.alya {
-    left: 663px;
-
-
-}
-
-.search-icon {
-    position: absolute;
-    top: 34px;
-    left: 1170px;
-    width: 39px;
-    height: 44px;
-}
 /* General Styles */
-body {
+* {
     margin: 0;
-    line-height: normal;
-    font-family: 'Kode Mono', sans-serif;
+    padding: 0;
+    box-sizing: border-box;
 }
-.alya {
-    width: 100%;
-    position: relative;
+
+body {
+    font-family: 'Kode Mono', monospace;
+    line-height: 1.5;
     background-color: #fff;
-    height: 1024px;
-    overflow: hidden;
-    text-align: left;
-    font-size: 20px;
     color: #000;
 }
-.alya-e-portfolio-removebg-prev-icon {
-    top: 21px;
-    left: 68px;
-    width: 176px;
-    height: 160px;
+
+.alya {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
+
+
+
+
+
+/* Main Content */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.alya-section {
+    text-align: center;
+}
+
 .alya-en-4 {
-    position: absolute;
-    top: 100px;
-    left: 451px;
-    font-size: 64px;
-    display: inline-block;
-    width: 720px;
-    height: 104px;
+    font-size: 48px;
+    font-weight: bold;
+    margin: 40px 0;
 }
-.a-1-icon {
-    position: absolute;
-    top: 200px;
-    left: 161px;
-    border-radius: 50px;
-    width: 278px;
-    height: 354px;
-    object-fit: cover;
+
+/* Cards */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
 }
-.a-1-icon1 {
-    position: absolute;
-    top: 200px;
-    left: 1214px;
-    border-radius: 50px;
-    width: 278px;
-    height: 354px;
-    object-fit: cover;
+
+.card {
+    perspective: 1000px;
+    cursor: pointer;
 }
-.l-1-icon {
-    position: absolute;
-    top: 200px;
-    left: 538px;
-    border-radius: 50px;
-    width: 265.6px;
-    height: 354px;
-    object-fit: cover;
-}
-.y-1-icon {
-    position: absolute;
-    top: 200px;
-    left: 876px;
-    border-radius: 50px;
-    width: 265.6px;
-    height: 354px;
-    object-fit: cover;
-}
-.do-u-matching {
-    position: absolute;
-    top: 1093px;
-    left: 355px;
-    font-size: 64px;
-    display: inline-block;
-    width: 1031px;
-    height: 104px;
-}
-.alya-child {
-    position: absolute;
-    top: 1431px;
-    left: 582px;
-    border-radius: 100px;
-    background-color: #ff97bb;
-    width: 335px;
-    height: 174px;
-}
-.quizz {
-    position: absolute;
-    top: 1481px;
-    left: 619px;
-    font-size: 64px;
-}
-.alya {
-    width: 100%;
+
+.card-inner {
     position: relative;
-    background-color: #fff;
-    height: 1940px;
+    width: 100%;
+    height: 350px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-inner.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
     overflow: hidden;
-    text-align: left;
-    font-size: 20px;
-    color: #000;
-    font-family: 'Kode Mono';
 }
 
 .card-back {
-    position:absolute;
-    width: 265.6px;
-    height: 354px;
-   visibility: hidden;
-    backface-visibility: hidden;
-
-
+    transform: rotateY(180deg);
 }
 
-.a-1-icon-back {position: absolute; top: 50px; left: 500px;
-    width: 500px;
-    height: 500px;
-
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.a-1-icon1-back {position: absolute; top: 50px; left: 500px;
-    width: 500px;
-    height: 500px;  }
 
-.y-1-icon-back,.l-1-icon-back { position: absolute; top: 50px; left: 500px;
-    width: 500px;
-    height: 500px; }
-.link:visited{
-    color: black;
-
-
+.do-u-matching {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 40px 0 20px;
+    text-align: center;
 }
-.link{
-    color: black;
-    text-decoration:none;
+
+/* Start Quiz Button */
+.start-quiz-button {
+    display: block;
+    margin: 20px auto;
+    padding: 12px 30px;
+    background-color: #ff97bb;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.start-quiz-button:hover {
+    background-color: #da8eab;
+    transform: translateY(-2px);
+}
+
+.start-quiz-button:active {
+    transform: translateY(0);
+}
+
+/* Quiz Section */
+.quiz-section {
+    padding: 30px;
+    background-color: #ffc3dc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.quiz-section h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.quiz-container {
+    width: 100%;
+}
+
+#questionText {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.answer-option-button {
+    padding: 12px;
+    background-color: #fa3193;
+    border: 1px solid #fa3193;
+    border-radius: 20px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.2s;
+}
+
+.answer-option-button:hover {
+    background-color: rgba(245, 187, 219, 0.8);
+}
+
+.result-area {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.result-area h3 {
+    font-size: 20px;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 25px;
+    background-color: #e0e0e0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto 15px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    width: 0;
+    background-color: #28a745;
+    text-align: center;
+    line-height: 25px;
+    color: #fff;
+    font-weight: 700;
+    transition: width 1s ease-in-out;
+}
+
+#compatibilityText {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Utility */
+.hidden {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-items {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar-items div {
+        margin: 10px 15px;
+        font-size: 16px;
+    }
+
+    .alya-logo {
+        width: 100px;
+        left: 10px;
+    }
+
+    .search-icon {
+        right: 10px;
+        width: 25px;
+    }
+
+    .alya-en-4 {
+        font-size: 36px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .card-inner {
+        height: 250px;
+    }
+
+    .do-u-matching {
+        font-size: 28px;
+    }
+
+    .quiz-section {
+        padding: 20px;
+    }
+
+    .quiz-section h2 {
+        font-size: 20px;
+    }
+
+    #questionText {
+        font-size: 16px;
+    }
+
+    .answer-option-button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-items div {
+        font-size: 14px;
+        margin: 8px 10px;
+    }
+
+    .alya-logo {
+        width: 80px;
+    }
+
+    .search-icon {
+        width: 20px;
+    }
+
+    .alya-en-4 {
+        font-size: 28px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-inner {
+        height: 200px;
+    }
+
+    .do-u-matching {
+        font-size: 24px;
+    }
+
+    .start-quiz-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .quiz-section {
+        padding: 15px;
+    }
+
+    .quiz-section h2 {
+        font-size: 18px;
+    }
+
+    #questionText {
+        font-size: 14px;
+    }
+
+    .answer-option-button {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .progress-bar-container {
+        width: 90%;
+    }
+
+    #compatibilityText {
+        font-size: 14px;
+    }
 }

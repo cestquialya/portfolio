@@ -1,33 +1,34 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width">
-    <link rel="stylesheet" href="acceuil.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap" />
-    <title>Accueil-Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="acceuil.css">
+    <link rel="stylesheet" href="style.css">
 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400;500;700&display=swap">
+    <title>Accueil - Portfolio</title>
 </head>
 <body>
 <div class="acceuil">
-    <!-- Navbar -->
+    <!-- Navbar (unchanged) -->
     <nav class="navbar">
         <div class="navbar-items">
-            <img class="alya-e-portfolio-removebg-prev-icon" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
-            <div class="accueill"><a href="acceuil.html" class="link">Accueil</a></div>
-            <div class="projets"><a href="projets.html" class="link">Projets</a></div>
-            <div class="contact"><a href="contact.html" class="link">Contact</a></div>
-            <div class="alya" id="alyaText"><a href="alya.html" class="link">Alya ?</a></div>
-            <img class="search-icon" src="images/search.png">
+            <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
+            <div class="nav-item accueil"><a href="acceuil.html" class="link">Accueil</a></div>
+            <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+            <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+            <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
         </div>
     </nav>
 
     <!-- Carousel -->
     <div class="carousel">
-        <img class="image1-1-icon" id="carouselImage" alt="Image 1" src="images/image1.jpg">
-        <div class="carousel-text" id="carouselText">Alya Portfolibo blabla</div>
-        <div class="en-savoir" id="enSavoir"><a class="link" href="alya.html"> En savoir +</a></div>
-
+        <div class="carousel-inner">
+            <img class="carousel-image" id="carouselImage" alt="Carousel Image" src="images/image1.jpg">
+            <div class="carousel-text" id="carouselText">Alya Portfolibo blabla</div>
+            <div class="en-savoir" id="enSavoir"><a class="link" href="alya.html">En savoir +</a></div>
+        </div>
         <div class="page-control">
             <div class="frame">
                 <div class="dot dot-1" data-slide="0"></div>
@@ -41,15 +42,15 @@
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const images = [
-            'images/image1.jpg', // Slide 1
-            'images/image2.jpg', // Slide 2
-            'images/image3.jpg'  // Slide 3
+            'images/image1.jpg',
+            'images/image2.jpg',
+            'images/image3.jpg'
         ];
 
         const texts = [
-            'Alya Portfolibo blabla',  // Texte Slide 1
-            'Découvrez mes projets',  // Texte Slide 2
-            'Contactez-moi pour plus dinfos'  // Texte Slide 3
+            'Je suis Alya Ayinde, future ingénieure apprentie à ESIEE Paris, passionnée par la filière Informatique, Design, Architecture et Développement. À travers ce portfolio, je partage mes projets,\n mes compétences et un peu de qui je suis. \nExplorez pour découvrir mon univers et mes créations !',
+            'Découvrez mes projets',
+            'Contactez-moi pour plus d\'infos'
         ];
 
         const carouselImage = document.getElementById('carouselImage');
@@ -57,33 +58,39 @@
         const dots = document.querySelectorAll('.dot');
 
         let currentSlide = 0;
+        let autoSlideInterval;
 
-        // Fonction pour mettre à jour l'image et le texte du carrousel
         function updateCarousel(slideIndex) {
             carouselImage.src = images[slideIndex];
             carouselText.textContent = texts[slideIndex];
             currentSlide = slideIndex;
-
-            // Mise à jour des points actifs
             dots.forEach((dot, index) => {
-                if (index === slideIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
+                dot.classList.toggle('active', index === slideIndex);
             });
         }
 
-        // Ajouter des écouteurs d'événements pour chaque point
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                currentSlide = (currentSlide + 1) % images.length;
+                updateCarousel(currentSlide);
+            }, 10000); // 10 seconds
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
         dots.forEach(dot => {
             dot.addEventListener('click', function () {
+                stopAutoSlide(); // Pause auto-slide on manual interaction
                 const slideIndex = parseInt(this.getAttribute('data-slide'));
                 updateCarousel(slideIndex);
+                startAutoSlide(); // Restart auto-slide after click
             });
         });
 
-        // Initialiser avec la première image et le premier texte
         updateCarousel(currentSlide);
+        startAutoSlide(); // Start auto-slide on page load
     });
 </script>
 </body>
