@@ -42,19 +42,18 @@ body {
 
 .carousel-text {
     position: absolute;
-    top: 50%; /* Center vertically */
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center both axes */
-    font-size: 28px;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
     color: #fff;
-
     text-align: center;
-    width: 80%;
+    width: 50%;
 }
 
 .en-savoir {
     position: absolute;
-    bottom: 20px; /* Unchanged, as requested */
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 180px;
@@ -113,6 +112,90 @@ body {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* Languages Section */
+.languages-section {
+    width: 100%;
+    max-width: 800px;
+    background-color: #f8b0c6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin: 40px auto; /* Center section with consistent spacing */
+}
+
+.languages-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: clamp(24px, 4vw, 28px);
+}
+
+.language-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 20px auto;
+    max-width: 500px; /* Slightly wider for balance */
+    width: 90%; /* Responsive width */
+    text-align: left;
+}
+
+.language-item {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: clamp(8px, 2vw, 12px) clamp(12px, 2.5vw, 15px);
+    margin-bottom: 8px;
+    font-size: clamp(14px, 2.5vw, 16px);
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    display: flex;
+    align-items: center;
+}
+
+.language-item:hover {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+    transform: translateY(-1px);
+}
+
+.language-item:active {
+    background-color: #e9e9e9;
+    transform: translateY(0);
+}
+
+.item-number {
+    font-weight: 700;
+    margin-right: 10px;
+    color: #007bff;
+    flex-shrink: 0;
+    min-width: 25px;
+    text-align: right;
+}
+
+.crown-icon {
+    margin-right: 8px;
+    font-size: 1.1em; /* Slightly smaller for balance */
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.skill-description {
+    min-height: 40px;
+    background-color: rgba(245, 187, 219, 0.8);
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    font-size: clamp(12px, 2vw, 14px);
+    color: #555;
+    line-height: 1.5;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 500px; /* Match language-list width */
+    width: 90%;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .carousel {
@@ -122,8 +205,8 @@ body {
     }
 
     .carousel-text {
-        font-size: 22px;
-        width: 90%;
+        font-size: 15px;
+        width: 50%;
     }
 
     .en-savoir {
@@ -141,6 +224,20 @@ body {
         width: 10px;
         height: 10px;
     }
+
+    .languages-section {
+        max-width: 90%;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    .language-list {
+        max-width: 400px;
+    }
+
+    .skill-description {
+        max-width: 400px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -151,7 +248,7 @@ body {
     }
 
     .carousel-text {
-        font-size: 18px;
+        font-size: 11px;
         width: 95%;
     }
 
@@ -169,5 +266,21 @@ body {
     .dot {
         width: 8px;
         height: 8px;
+    }
+
+    .languages-section {
+        max-width: 95%;
+        padding: 10px;
+        margin: 20px auto;
+    }
+
+    .language-list {
+        max-width: 90%;
+    }
+
+    .skill-description {
+        max-width: 90%;
+        padding: 10px;
+        font-size: clamp(11px, 1.8vw, 12px);
     }
 }

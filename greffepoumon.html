@@ -132,11 +132,14 @@ h1 {
     <!-- Navbar (unchanged) -->
     <nav class="navbar">
         <div class="navbar-items">
-            <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
-            <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
-            <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
-            <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
-            <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+            <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png" loading="lazy">
+            <div class="hamburger" aria-label="Toggle navigation menu">☰</div>
+            <div class="nav-menu">
+                <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
+                <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+                <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+                <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+            </div>
         </div>
     </nav>
 <h1>France Greffes Coeur Poumons</h1>
@@ -284,5 +287,7 @@ h1 {
         });
     });
 </script>
+<script src="scripts.js"></script>
+
 </body>
 </html>

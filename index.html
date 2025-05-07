@@ -14,11 +14,14 @@
     <!-- Navbar (unchanged) -->
     <nav class="navbar">
         <div class="navbar-items">
-            <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
-            <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
-            <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
-            <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
-            <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+            <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png" loading="lazy">
+            <div class="hamburger" aria-label="Toggle navigation menu">☰</div>
+            <div class="nav-menu">
+                <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
+                <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+                <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+                <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+            </div>
         </div>
     </nav>
 
@@ -38,6 +41,37 @@
         </div>
     </div>
 </div>
+<div class="languages-section">
+    <h2>Mon top languages</h2>
+    <ul class="language-list">
+        <li data-lang="java" class="language-item top-skill">
+            <span class="item-number">1.</span> <span class="crown-icon" title="Expert">👑</span> Java
+        </li>
+        <li data-lang="javascript" class="language-item">
+            <span class="item-number">2.</span> JavaScript
+        </li>
+        <li data-lang="python" class="language-item">
+            <span class="item-number">3.</span> Python
+        </li>
+        <li data-lang="php" class="language-item">
+            <span class="item-number">4.</span> PHP
+        </li>
+        <li data-lang="sql" class="language-item">
+            <span class="item-number">5.</span> SQL
+        </li>
+        <li data-lang="html" class="language-item">
+            <span class="item-number">6.</span> HTML
+        </li>
+        <li data-lang="css" class="language-item">
+            <span class="item-number">7.</span> CSS
+        </li>
+        <li data-lang="c" class="language-item last-skill">
+            <span class="item-number">8.</span> C
+        </li>
+    </ul>
+    <p id="skillDescription" class="skill-description">Cliquez sur un langage ci-dessus pour en savoir plus sur mon niveau.</p>
+</div>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -73,7 +107,7 @@
             autoSlideInterval = setInterval(() => {
                 currentSlide = (currentSlide + 1) % images.length;
                 updateCarousel(currentSlide);
-            }, 10000); // 10 seconds
+            }, 5000); // 10 seconds
         }
 
         function stopAutoSlide() {
@@ -93,5 +127,39 @@
         startAutoSlide(); // Start auto-slide on page load
     });
 </script>
+<script>    // Data for languages and skill levels
+const languagesData = {
+    'java': 'Niveau : Expert - J\'ai une solide expérience dans le développement d\'applications robustes avec Java.',
+    'javascript': 'Niveau : Avancé - Maîtrise de JavaScript pour des interfaces interactives et des applications côté client.',
+    'python': 'Niveau : Intermédiaire - Bonne compréhension et pratique pour les scripts, data analysis et backend simple.',
+    'php': 'Niveau : Intermédiaire - Capable de développer des applications web dynamiques avec PHP.',
+    'sql': 'Niveau : Intermédiaire - Connaissance des bases de données relationnelles et manipulation de données avec SQL.',
+    'html': 'Niveau : Expert - Création de structures sémantiques et accessibles avec HTML5.',
+    'css': 'Niveau : Avancé - Conception de layouts responsifs et esthétiques avec CSS3.',
+    'c': 'Niveau : Basique - Familiarisé avec les concepts de base et la gestion de la mémoire.'
+};
+
+// Elements for languages section
+const languageListUl = document.querySelector('.language-list'); // Get the UL
+const skillDescriptionP = document.getElementById('skillDescription');
+
+// Add event listener to the language list container using event delegation
+languageListUl.addEventListener('click', (event) => {
+    // Find the closest list item (li) to the clicked element
+    const listItem = event.target.closest('.language-item');
+
+    // Check if a list item was clicked
+    if (listItem) {
+        const lang = listItem.getAttribute('data-lang');
+        if (lang && languagesData[lang]) {
+            skillDescriptionP.textContent = languagesData[lang];
+        } else {
+            skillDescriptionP.textContent = 'Information non disponible pour ce langage.';
+        }
+    }
+});
+</script>
+<script src="scripts.js"></script>
+
 </body>
 </html>

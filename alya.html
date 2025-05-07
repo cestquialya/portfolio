@@ -13,62 +13,64 @@
 <div class="alya">
   <nav class="navbar">
     <div class="navbar-items">
-      <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png">
-      <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
-      <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
-      <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
-      <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
-
+      <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png" loading="lazy">
+      <div class="hamburger" aria-label="Toggle navigation menu">☰</div>
+      <div class="nav-menu">
+        <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
+        <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+        <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+        <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+      </div>
     </div>
   </nav>
-  <div class="main-content">
-    <div class="alya-section" id="cardsSection">
-      <b class="alya-en-4">ALya en 4 cartes ?</b>
+  <main class="main-content">
+    <section class="alya-section" id="cardsSection">
+      <h1 class="alya-en-4">ALya en 4 cartes ?</h1>
       <div class="cards-grid">
         <div class="card" onclick="tournercarte(this)">
           <div class="card-inner">
             <div class="card-front">
-              <img class="card-img" alt="A" src="A.jpg">
+              <img class="card-img" alt="A" src="A.jpg" srcset="A.jpg 480w, A.jpg 800w" sizes="(max-width: 600px) 480px, 800px" loading="lazy">
             </div>
             <div class="card-back">
-              <img class="card-img" alt="A Back" src="images/AB.png">
+              <img class="card-img" alt="A Back" src="images/AB.png" loading="lazy">
             </div>
           </div>
         </div>
         <div class="card" onclick="tournercarte(this)">
           <div class="card-inner">
             <div class="card-front">
-              <img class="card-img" alt="L" src="L.jpg">
+              <img class="card-img" alt="L" src="L.jpg" srcset="L.jpg 480w, L.jpg 800w" sizes="(max-width: 600px) 480px, 800px" loading="lazy">
             </div>
             <div class="card-back">
-              <img class="card-img" alt="L Back" src="images/LB.png">
+              <img class="card-img" alt="L Back" src="images/LB.png" loading="lazy">
             </div>
           </div>
         </div>
         <div class="card" onclick="tournercarte(this)">
           <div class="card-inner">
             <div class="card-front">
-              <img class="card-img" alt="Y" src="Y.jpg">
+              <img class="card-img" alt="Y" src="Y.jpg" srcset="Y.jpg 480w, Y.jpg 800w" sizes="(max-width: 600px) 480px, 800px" loading="lazy">
             </div>
             <div class="card-back">
-              <img class="card-img" alt="Y Back" src="images/YB.png">
+              <img class="card-img" alt="Y Back" src="images/YB.png" loading="lazy">
             </div>
           </div>
         </div>
         <div class="card" onclick="tournercarte(this)">
           <div class="card-inner">
             <div class="card-front">
-              <img class="card-img" alt="A2" src="A.jpg">
+              <img class="card-img" alt="A2" src="A.jpg" srcset="A.jpg 480w, A.jpg 800w" sizes="(max-width: 600px) 480px, 800px" loading="lazy">
             </div>
             <div class="card-back">
-              <img class="card-img" alt="A2 Back" src="images/ABB.png">
+              <img class="card-img" alt="A2 Back" src="images/ABB.png" loading="lazy">
             </div>
           </div>
         </div>
       </div>
       <div class="do-u-matching">DO U MATCHING AURA W/ ME ?</div>
       <button id="startQuizButton" class="start-quiz-button">Quiz !</button>
-    </div>
+    </section>
     <div class="alya-section quiz-section" id="quizSection">
       <h2>Quiz : Sommes-nous compatibles ?</h2>
       <div class="quiz-container">
@@ -86,8 +88,8 @@
         </div>
       </div>
     </div>
+  </main>
   </div>
-</div>
 
 <script>
   function tournercarte(card) {
@@ -220,3 +222,4 @@
 </script>
 </body>
 </html>
+<script src="scripts.js"></script>
