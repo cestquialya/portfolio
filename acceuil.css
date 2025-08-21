@@ -111,10 +111,10 @@ body {
 .dot:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
-
 /* Languages Section */
 .languages-section {
     width: 100%;
+    max-height: 400px;
     max-width: 800px;
     background-color: #f8b0c6;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -134,11 +134,37 @@ body {
 
 .language-list {
     list-style: none;
-    padding: 0;
+    padding: 0 10px; /* Adjusted padding to account for scrollbar space */
     margin: 0 auto 20px auto;
     max-width: 500px; /* Slightly wider for balance */
     width: 90%; /* Responsive width */
     text-align: left;
+    max-height: 200px; /* Adjusted to fit within max-height of parent, accounting for h2 and padding */
+    overflow-y: auto; /* Enable vertical scrollbar */
+    box-sizing: border-box; /* Ensure padding doesn't expand width */
+    scrollbar-width: thin; /* Firefox: slim scrollbar */
+    scrollbar-color: #f8b0c6 #f0f0f0; /* Firefox: scrollbar colors */
+}
+
+/* Webkit browsers (Chrome, Safari) scrollbar styling */
+.language-list::-webkit-scrollbar {
+    width: 8px; /* Small scrollbar width */
+}
+
+.language-list::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Track color */
+    border-radius: 4px;
+    margin: 5px; /* Adds spacing to keep scrollbar inset */
+}
+
+.language-list::-webkit-scrollbar-thumb {
+    background: #ff97ce; /* Thumb color */
+    border-radius: 4px;
+    border: 1px solid #f0f0f0; /* Adds a border to make it look inset */
+}
+
+.language-list::-webkit-scrollbar-thumb:hover {
+    background: #cd1473; /* Darker thumb on hover */
 }
 
 .language-item {
@@ -195,13 +221,100 @@ body {
     max-width: 500px; /* Match language-list width */
     width: 90%;
 }
+/* NEW: Video CV Section Styling */
+.video-cv-section {
+    width: 100%;
+    max-width: 800px; /* Match other main sections */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 40px; /* Space above this section */
+    margin-bottom: 40px; /* Space below this section */
+}
 
+.video-cv-section h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.8em;
+}
+
+.video-thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width = 9 / 16 = 0.5625) */
+    background-color: #000; /* Black background behind video for loading/empty state */
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 auto 15px auto; /* Center and add space below */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.video-thumbnail-container:hover .video-thumbnail {
+    transform: scale(1.03); /* Slight zoom on hover */
+}
+
+.play-button-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.video-thumbnail-container:hover .play-button-overlay {
+    background-color: rgba(255, 0, 0, 0.8); /* Red on hover, like YouTube */
+}
+
+.play-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.video-cv-section p {
+    font-size: 1em;
+    color: #555;
+    margin-top: 15px;
+}
+/* Le conteneur qui SCROLLE */
+.scroll-x {
+
+    display: flex;            /* aligne les éléments sur une ligne */
+    gap: 32px;
+    overflow-x: auto;         /* active le scroll horizontal */
+    overflow-y: hidden;       /* pas de scroll vertical */
+    padding: 12px;
+    -webkit-overflow-scrolling: touch; /* fluide sur iOS */
+    touch-action: pan-x;      /* geste horizontal sur mobile */
+    scroll-snap-type: x mandatory; /* optionnel: snap au défilement */
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .carousel {
         max-width: 90%;
         height: 400px;
-        margin: 30px auto;
+       margin: 25px auto;
     }
 
     .carousel-text {
@@ -242,9 +355,9 @@ body {
 
 @media (max-width: 480px) {
     .carousel {
-        max-width: 95%;
-        height: 300px;
-        margin: 20px auto;
+        max-width: 75%;
+        height: 150px;
+        margin: 15px auto;
     }
 
     .carousel-text {
@@ -253,8 +366,8 @@ body {
     }
 
     .en-savoir {
-        width: 120px;
-        height: 35px;
+        width: 100px;
+        height: 25px;
         bottom: 10px;
         font-size: 14px;
     }
@@ -269,18 +382,52 @@ body {
     }
 
     .languages-section {
-        max-width: 95%;
+        max-width: 100%;
+        height: 220px;
         padding: 10px;
         margin: 20px auto;
     }
 
+
+    .languages-section h2 {
+
+        font-size: 20px;
+    }
+
     .language-list {
         max-width: 90%;
+        height: 35px;
     }
 
     .skill-description {
-        max-width: 90%;
+        max-width:100%;
         padding: 10px;
-        font-size: clamp(11px, 1.8vw, 12px);
+        font-size: 10px;
+        height: 10px;
     }
+
+
+    .video-cv-section {
+        padding: 10px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    .video-cv-section h2 {
+        font-size: 1.3em;
+    }
+    .play-button-overlay {
+        width: 50px;
+        height: 50px;
+    }
+    .play-icon {
+        width: 20px;
+        height: 20px;
+    }
+    .video-cv-section p {
+        font-size: 0.9em;
+    }
+   .scroll-x{
+       margin: 90px;
+   }
+
 }

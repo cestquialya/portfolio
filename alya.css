@@ -91,6 +91,9 @@ body {
     margin: 40px 0 20px;
     text-align: center;
 }
+.card-imgb h3{
+    color:#fcb3dd;
+}
 
 /* Start Quiz Button */
 .start-quiz-button {
@@ -264,6 +267,11 @@ body {
     .answer-option-button {
         font-size: 14px;
         padding: 10px;
+    }
+
+    .card-imgb p{
+
+        font-size: 7px;
     }
 }
 

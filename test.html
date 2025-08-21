@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <title>Scroll horizontal</title>
+    <style>
+        * { box-sizing: border-box; }
+
+        /* On limite volontairement la largeur du conteneur
+           pour forcer un débordement horizontal */
+        .wrap {
+            width: 320px;
+            margin: 20px auto;
+            font-family: system-ui, sans-serif;
+        }
+
+        /* Le conteneur qui SCROLLE */
+        .scroll-x {
+            display: flex;            /* aligne les éléments sur une ligne */
+            gap: 12px;
+            overflow-x: auto;         /* active le scroll horizontal */
+            overflow-y: hidden;       /* pas de scroll vertical */
+            border: 1px solid #ccc;
+            padding: 12px;
+            -webkit-overflow-scrolling: touch; /* fluide sur iOS */
+            touch-action: pan-x;      /* geste horizontal sur mobile */
+            scroll-snap-type: x mandatory; /* optionnel: snap au défilement */
+        }
+
+        /* Les éléments à l’intérieur NE doivent pas rétrécir */
+        .card {
+            flex: 0 0 auto;           /* ne pas wrap, ne pas shrink */
+            width: 180px;             /* largeur > à la fenêtre pour qu’il y ait débordement total */
+            height: 110px;
+            border-radius: 12px;
+            background: #e6f3ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            scroll-snap-align: start; /* optionnel: snap */
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h3>Démo scroll horizontal</h3>
+    <div class="scroll-x">
+        <div class="card">1</div>
+        <div class="card">2</div>
+        <div class="card">3</div>
+        <div class="card">4</div>
+        <div class="card">5</div>
+        <div class="card">6</div>
+    </div>
+</div>
+</body>
+</html>
