@@ -229,7 +229,12 @@ body {
         right: 10px;
         width: 25px;
     }
-
+    .navbar a.active-link {
+        color: #007bff; /* Or any color that indicates active */
+        font-weight: 700; /* Make it bold */
+        /* Optional: add an underline or border */
+        border-bottom: 2px solid #007bff;
+    }
     .alya-en-4 {
         font-size: 36px;
     }
