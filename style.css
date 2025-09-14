@@ -68,8 +68,18 @@ body {
     display: flex;
     align-items: center;
 }
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .navbar-items {
+        flex-direction: column;
+        padding: 1px 0; /* Padding vertical maximisé */
+    }
+    .nav-item {
+        margin: 0 clamp(200px, 4vw, 1000px); /* Espacement entre les items maximisé */
+    }
+}
 
-/* Responsive Navbar */
+/* Responsive Navbar
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -97,7 +107,7 @@ body {
     .nav-item {
         margin: clamp(6px, 1.5vw, 8px) 0;
         font-size: clamp(14px, 2.5vw, 16px);
-        text-align: center; /* Center text in mobile menu */
+        text-align: center;
         z-index:1000000 ;
     }
 
