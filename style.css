@@ -76,7 +76,10 @@ body {
         padding: 1px 0; /* Padding vertical maximisé */
     }
     .nav-item {
-        margin: 0 clamp(200px, 4vw, 1000px); /* Espacement entre les items maximisé */
+        margin: 0 clamp(20px, 4vw, 10px); /* Espacement entre les items maximisé */
+    }
+    .navbar{
+       position: relative;
     }
 }
 
