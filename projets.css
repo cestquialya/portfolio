@@ -187,12 +187,12 @@
 /* Responsive adjustments for projects grid */
 @media (max-width: 768px) {
     .projects-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Smaller min width */
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 20px;
     }
 
     .project-image {
-        height: 180px; /* Slightly smaller height */
+        height: 180px;
     }
 
     .project-info h3 {
@@ -206,12 +206,12 @@
 
 @media (max-width: 480px) {
     .projects-grid {
-        grid-template-columns: 1fr; /* Single column on very small screens */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
     .project-image {
-        height: 150px; /* Even smaller height */
+        height: 150px;
     }
 
     .project-info h3 {
@@ -223,7 +223,6 @@
     }
 }
 
-/* Responsive adjustments for modal */
 @media (max-width: 768px) {
     .modal-content {
         margin: 10% auto;
@@ -246,7 +245,7 @@
 
 @media (max-width: 480px) {
     .modal-content {
-        margin: 15% 10px; /* Add horizontal margin */
+        margin: 15% 10px;
         padding: 15px;
     }
 
@@ -261,9 +260,8 @@
     }
 
     #modalLinks a {
-        display: block; /* Stack links */
+        display: block;
         margin-right: 0;
         margin-bottom: 10px;
     }
 }
-

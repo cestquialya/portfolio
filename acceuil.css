@@ -1,21 +1,11 @@
 /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Kode Mono', monospace;
-    line-height: 1.5;
-    background-color: #fff;
-    color: #000;
-}
 
 .acceuil {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+
 }
 
 /* Carousel */

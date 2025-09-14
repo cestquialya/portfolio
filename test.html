@@ -1,58 +1,25 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Scroll horizontal</title>
-    <style>
-        * { box-sizing: border-box; }
-
-        /* On limite volontairement la largeur du conteneur
-           pour forcer un débordement horizontal */
-        .wrap {
-            width: 320px;
-            margin: 20px auto;
-            font-family: system-ui, sans-serif;
-        }
-
-        /* Le conteneur qui SCROLLE */
-        .scroll-x {
-            display: flex;            /* aligne les éléments sur une ligne */
-            gap: 12px;
-            overflow-x: auto;         /* active le scroll horizontal */
-            overflow-y: hidden;       /* pas de scroll vertical */
-            border: 1px solid #ccc;
-            padding: 12px;
-            -webkit-overflow-scrolling: touch; /* fluide sur iOS */
-            touch-action: pan-x;      /* geste horizontal sur mobile */
-            scroll-snap-type: x mandatory; /* optionnel: snap au défilement */
-        }
-
-        /* Les éléments à l’intérieur NE doivent pas rétrécir */
-        .card {
-            flex: 0 0 auto;           /* ne pas wrap, ne pas shrink */
-            width: 180px;             /* largeur > à la fenêtre pour qu’il y ait débordement total */
-            height: 110px;
-            border-radius: 12px;
-            background: #e6f3ff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            scroll-snap-align: start; /* optionnel: snap */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Navbar</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-    <h3>Démo scroll horizontal</h3>
-    <div class="scroll-x">
-        <div class="card">1</div>
-        <div class="card">2</div>
-        <div class="card">3</div>
-        <div class="card">4</div>
-        <div class="card">5</div>
-        <div class="card">6</div>
+
+<nav class="navbar">
+    <div class="navbar-items">
+        <img class="navbar-logo" alt="Alya Logo" src="images/ALYA-removebg-preview.png" loading="lazy">
+        <div class="hamburger" aria-label="Toggle navigation menu">☰</div>
+        <div class="nav-menu">
+            <div class="nav-item accueil"><a href="index.html" class="link">Accueil</a></div>
+            <div class="nav-item projets"><a href="projets.html" class="link">Projets</a></div>
+            <div class="nav-item contact"><a href="contact.html" class="link">Contact</a></div>
+            <div class="nav-item alya-nav"><a href="alya.html" class="link">Alya ?</a></div>
+        </div>
     </div>
-</div>
+</nav>
+<script src="scripts.js"></script>
 </body>
 </html>

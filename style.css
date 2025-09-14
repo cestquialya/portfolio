@@ -69,6 +69,7 @@ body {
     align-items: center;
 }
 /* Media Query for Mobile */
+<<<<<<< HEAD
 @media (max-width: 768px) {
     .navbar-items {
         flex-direction: column;
@@ -80,8 +81,20 @@ body {
 }
 
 /* Responsive Navbar
+=======
+>>>>>>> 5ec5dfcde8e66bcde1078a82e5455c83a89218fb
 @media (max-width: 768px) {
-    .hamburger {
+    .navbar-items {
+        flex-direction: column;
+        padding: 20px 0; /* Padding vertical maximisé */
+    }
+    .nav-item {
+        margin: 0 clamp(20px, 4vw, 40px); /* Espacement entre les items maximisé */
+    }
+}
+/* Responsive Navbar
+@media (max-width: 768px) {
+   .hamburger {
         display: block;
     }
   .navbar{
